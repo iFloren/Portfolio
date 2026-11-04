@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seu Nome | Portfólio</title>
+  <meta name="description" content="Portfólio de projetos de Seu Nome.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <nav class="nav container">
+      <a href="#inicio" class="logo">SN</a>
+      <ul class="nav-links">
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <button id="tema-toggle" class="tema-toggle" aria-label="Alternar tema claro/escuro">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Apresentação -->
+    <section id="inicio" class="hero container">
+      <p class="hero-saudacao">Olá, eu sou</p>
+      <h1>João Pedro Cirilo Parronchi</h1>
+      <p class="hero-sub">Desenvolvedor fullstack com conhecimento amplo em diversas linguagens populares de programação.</p>
+      <a href="#projetos" class="botao">Ver projetos</a>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="secao container">
+      <h2>Projetos</h2>
+      <div id="filtros" class="filtros" aria-label="Filtrar projetos por tecnologia"></div>
+      <div id="lista-projetos" class="grade"></div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="secao container revelar">
+      <h2>Sobre mim</h2>
+      <p>
+        Atualmente estudo Ciência da Computação no Instituto Mauá de Tecnologia, na faculdade já fiz sites e aplicações para ETEC julio de mesquita e também para uma empresa popular de motores no brasil, utilizando linguagens como python, JavaScript, dart e incluindo conhecimentos sobre IA para ajudar com possíveis problemas e para adiciona-la aos projetos caso desejado.
+      </p>
+      <ul class="habilidades">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Git</li>
+        <li>Python</li>
+        <li>Dart</li>
+        <li>Java</li>
+      </ul>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="secao container revelar">
+      <h2>Contato</h2>
+      <p>Vamos conversar? Me encontre por aqui:</p>
+      <div class="contatos">
+        <a href="joapedrocirilojp@gmail.com" class="botao">E-mail</a>
+        <a href="https://github.com/iFloren" target="_blank" rel="noopener" class="botao botao-contorno">GitHub</a>
+        <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-cirilo-parronchi-2808523a5/" target="_blank" rel="noopener" class="botao botao-contorno">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>© <span id="ano"></span> João Pedro Cirilo Parronchi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
