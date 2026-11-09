@@ -10,7 +10,7 @@ const projetos = [
     imagem: "assets/fogato-logo.jpg",
     imagemLogo: true, // true = imagem pequena/logo, aparece inteira sem cortar
     tecnologias: ["HTML", "CSS", "JavaScript", "Electron"],
-    demo: "demos/Demo Fogato.mp4",
+    demo: "demos/demo-fogato.mp4",
     codigo: "https://github.com/iFloren/Fogato",
   },
   
