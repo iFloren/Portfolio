@@ -7,27 +7,13 @@ const projetos = [
   {
     titulo: "Fogato, aplicativo de foco",
     descricao: "App para PC que visa ajudar pessoas com TDAH a se concentrarem em uma atividade.",
-    imagem: "https://placehold.co/640x360?text=Lista+de+Tarefas",
+    imagem: "assets/fogato-logo.jpg",
+    imagemLogo: true, // true = imagem pequena/logo, aparece inteira sem cortar
     tecnologias: ["HTML", "CSS", "JavaScript", "Electron"],
-    demo: "#",
-    codigo: "#",
+    demo: "demos/Demo Fogato.mp4",
+    codigo: "https://github.com/iFloren/Fogato",
   },
-  {
-    titulo: "Clima Agora",
-    descricao: "Consulta a previsão do tempo de qualquer cidade usando uma API pública.",
-    imagem: "https://placehold.co/640x360?text=Clima+Agora",
-    tecnologias: ["JavaScript", "API"],
-    demo: "#",
-    codigo: "#",
-  },
-  {
-    titulo: "Landing Page",
-    descricao: "Página de apresentação responsiva para um café fictício.",
-    imagem: "https://placehold.co/640x360?text=Landing+Page",
-    tecnologias: ["HTML", "CSS"],
-    demo: "#",
-    codigo: "#",
-  },
+  
 ];
 
 // =============================================
@@ -36,12 +22,17 @@ const projetos = [
 const listaEl = document.getElementById("lista-projetos");
 const filtrosEl = document.getElementById("filtros");
 
+// Se o link da demo for um arquivo de vídeo, ele abre num player na própria página
+function ehVideo(caminho) {
+  return /\.(mp4|webm|ogg|mov)$/i.test(caminho);
+}
+
 function criarCard(projeto) {
   const card = document.createElement("article");
   card.className = "card revelar";
 
   card.innerHTML = `
-    <img src="${projeto.imagem}" alt="Captura de tela do projeto ${projeto.titulo}" loading="lazy">
+    <img src="${projeto.imagem}"${projeto.imagemLogo ? ' class="logo-projeto"' : ""} alt="Captura de tela do projeto ${projeto.titulo}" loading="lazy">
     <div class="card-corpo">
       <h3>${projeto.titulo}</h3>
       <p>${projeto.descricao}</p>
@@ -49,7 +40,11 @@ function criarCard(projeto) {
         ${projeto.tecnologias.map((tec) => `<li>${tec}</li>`).join("")}
       </ul>
       <div class="card-links">
-        <a href="${projeto.demo}" target="_blank" rel="noopener">Ver demo →</a>
+        ${
+          ehVideo(projeto.demo)
+            ? `<a href="${projeto.demo}" class="abrir-video" data-video="${projeto.demo}" data-titulo="${projeto.titulo}">Ver demo ▶</a>`
+            : `<a href="${projeto.demo}" target="_blank" rel="noopener">Ver demo →</a>`
+        }
         <a href="${projeto.codigo}" target="_blank" rel="noopener">Código</a>
       </div>
     </div>
@@ -136,7 +131,41 @@ temaBotao.addEventListener("click", () => {
 });
 
 // =============================================
-// 6. ANO NO RODAPÉ
+// 6. PLAYER DE VÍDEO DAS DEMOS
+// =============================================
+const modalVideo = document.getElementById("modal-video");
+const playerVideo = document.getElementById("player-video");
+const tituloVideo = document.getElementById("modal-video-titulo");
+
+listaEl.addEventListener("click", (evento) => {
+  const link = evento.target.closest(".abrir-video");
+  if (!link) return;
+
+  evento.preventDefault();
+  tituloVideo.textContent = link.dataset.titulo;
+  playerVideo.src = link.dataset.video;
+  modalVideo.showModal();
+  playerVideo.play().catch(() => {});
+});
+
+function fecharVideo() {
+  playerVideo.pause();
+  playerVideo.removeAttribute("src");
+  playerVideo.load();
+}
+
+document.getElementById("fechar-video").addEventListener("click", () => modalVideo.close());
+
+// Fecha ao clicar fora do vídeo
+modalVideo.addEventListener("click", (evento) => {
+  if (evento.target === modalVideo) modalVideo.close();
+});
+
+// Para o vídeo sempre que o modal fechar (botão, Esc ou clique fora)
+modalVideo.addEventListener("close", fecharVideo);
+
+// =============================================
+// 7. ANO NO RODAPÉ
 // =============================================
 document.getElementById("ano").textContent = new Date().getFullYear();
 

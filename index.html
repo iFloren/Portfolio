@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seu Nome | Portfólio</title>
+  <title>João Pedro Cirilo | Portfólio</title>
   <meta name="description" content="Portfólio de projetos de Seu Nome.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topo">
     <nav class="nav container">
-      <a href="#inicio" class="logo">SN</a>
+      <a href="#inicio" class="logo">JP</a>
       <ul class="nav-links">
         <li><a href="#projetos">Projetos</a></li>
         <li><a href="#sobre">Sobre</a></li>
@@ -58,7 +58,7 @@
       <h2>Contato</h2>
       <p>Vamos conversar? Me encontre por aqui:</p>
       <div class="contatos">
-        <a href="joapedrocirilojp@gmail.com" class="botao">E-mail</a>
+        <a href="mailto:joapedrocirilojp@gmail.com" class="botao">E-mail</a>
         <a href="https://github.com/iFloren" target="_blank" rel="noopener" class="botao botao-contorno">GitHub</a>
         <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-cirilo-parronchi-2808523a5/" target="_blank" rel="noopener" class="botao botao-contorno">LinkedIn</a>
       </div>
@@ -68,6 +68,17 @@
   <footer class="rodape">
     <p>© <span id="ano"></span> João Pedro Cirilo Parronchi</p>
   </footer>
+
+  <!-- Player das demos em vídeo -->
+  <dialog id="modal-video" class="modal-video" aria-labelledby="modal-video-titulo">
+    <div class="modal-video-conteudo">
+      <div class="modal-video-topo">
+        <h3 id="modal-video-titulo"></h3>
+        <button id="fechar-video" class="modal-video-fechar" aria-label="Fechar vídeo">✕</button>
+      </div>
+      <video id="player-video" controls playsinline preload="metadata"></video>
+    </div>
+  </dialog>
 
   <script src="script.js"></script>
 </body>

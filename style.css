@@ -220,6 +220,13 @@ img {
   background: var(--borda);
 }
 
+/* Imagens pequenas (logos): mostra inteira, sem cortar */
+.card img.logo-projeto {
+  object-fit: contain;
+  padding: 2rem;
+  background: #0f3d6f;
+}
+
 .card-corpo {
   padding: 1.25rem;
   display: flex;
@@ -267,6 +274,60 @@ img {
 
 .card-links a:hover {
   text-decoration: underline;
+}
+
+/* ===== Player de vídeo (demo) ===== */
+.modal-video {
+  border: none;
+  padding: 0;
+  margin: auto;
+  background: transparent;
+  width: min(960px, 100% - 2rem);
+  max-height: calc(100vh - 2rem);
+}
+
+.modal-video::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.modal-video-conteudo {
+  background: var(--superficie);
+  color: var(--texto);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+
+.modal-video-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.modal-video-topo h3 {
+  font-size: 1rem;
+}
+
+.modal-video-fechar {
+  background: none;
+  border: 1px solid var(--borda);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  color: var(--texto);
+  flex-shrink: 0;
+}
+
+.modal-video video {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 8rem);
+  background: #000;
 }
 
 /* ===== Habilidades e contato ===== */
